@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preload" as="script" fetchPriority="low" href="_next/static/chunks/webpack-2f18ef47810b4ea9.js"/>
+    <title>ᴬᴸ LINUX | Cybersecurity Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #00d4ff;
+            --secondary-blue: #0099cc;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --text-light: #e0e0e0;
+            --accent-green: #00ff88;
+            --glitch-red: #ff0040;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Matrix Rain Background */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(180deg, rgba(0,212,255,0.1) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,212,255,0.3);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0,212,255,0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--primary-blue);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-green);
+            transform: translateY(-3px);
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .social-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 40px;
+            min-height: 100vh;
+        }
+
+        /* Profile Section */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Profile Logo */
+        .profile-logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-blue);
+            box-shadow: 0 0 50px rgba(0,212,255,0.5),
+                        inset 0 0 50px rgba(0,212,255,0.1);
+            overflow: hidden;
+            position: relative;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 50px rgba(0,212,255,0.5),
+                           inset 0 0 50px rgba(0,212,255,0.1);
+            }
+            50% {
+                box-shadow: 0 0 80px rgba(0,212,255,0.8),
+                           inset 0 0 80px rgba(0,212,255,0.2);
+            }
+        }
+
+        .profile-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Terminal Intro */
+        .terminal-intro {
+            background: rgba(0,0,0,0.8);
+            border: 1px solid var(--primary-blue);
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 0 30px rgba(0,212,255,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0,212,255,0.3);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot:nth-child(1) { background: #ff5f56; }
+        .terminal-dot:nth-child(2) { background: #ffbd2e; }
+        .terminal-dot:nth-child(3) { background: #27c93f; }
+
+        .typing-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--accent-green);
+        }
+
+        .typing-text::after {
+            content: '_';
+            animation: blink 1s infinite;
+            color: var(--primary-blue);
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(0,153,204,0.1) 100%);
+            border: 1px solid rgba(0,212,255,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--accent-green), var(--primary-blue));
+            border-radius: 10px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .info-card:hover::before {
+            opacity: 1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+        }
+
+        .info-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Skills Progress */
+        .skills-container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 40px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            color: var(--primary-blue);
+            font-size: 14px;
+        }
+
+        .skill-percentage {
+            color: var(--accent-green);
+            font-size: 14px;
+        }
+
+        .skill-bar {
+            background: rgba(0,212,255,0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+            border-radius: 4px;
+            animation: loadBar 2s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+
+        @keyframes loadBar {
+            from { width: 0; }
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+            color: var(--primary-blue);
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 0.05em 0 0 var(--glitch-red),
+                        -0.025em -0.05em 0 var(--accent-green),
+                        0.025em 0.05em 0 var(--secondary-blue);
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 0.05em 0 0 var(--glitch-red),
+                            -0.025em -0.05em 0 var(--accent-green),
+                            0.025em 0.05em 0 var(--secondary-blue);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 var(--glitch-red),
+                            -0.025em -0.05em 0 var(--accent-green),
+                            0.025em 0.05em 0 var(--secondary-blue);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 var(--glitch-red),
+                            0.025em 0.025em 0 var(--accent-green),
+                            -0.05em -0.05em 0 var(--secondary-blue);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 var(--glitch-red),
+                            0.025em 0.025em 0 var(--accent-green),
+                            -0.05em -0.05em 0 var(--secondary-blue);
+            }
+            50% {
+                text-shadow: 0.025em 0.05em 0 var(--glitch-red),
+                            0.05em 0 0 var(--accent-green),
+                            0 -0.05em 0 var(--secondary-blue);
+            }
+            99% {
+                text-shadow: 0.025em 0.05em 0 var(--glitch-red),
+                            0.05em 0 0 var(--accent-green),
+                            0 -0.05em 0 var(--secondary-blue);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .glitch {
+                font-size: 24px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-bg"></canvas>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo-text">$ ./ᴬᴸ LINUX.sh</div>
+            <div class="social-links">
+                <a href="https://discord.gg/UFSdqSnqJW" target="_blank" title="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="janooo.html" target="_blank" title="YouTube Cloner">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </a>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="profile-container">
+            <!-- Profile Logo -->
+            <div class="profile-logo">
+                <img src="jano.gif" alt="Jano Linux">
+            </div>
+
+            <!-- Glitch Title -->
+            <h1 class="glitch">ᴬᴸ LINUX</h1>
+
+            <!-- Terminal Intro -->
+            <div class="terminal-intro">
+                <div class="terminal-header">
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                </div>
+                <div class="typing-text" id="typing-text"></div>
+            </div>
+
+            <!-- Info Cards -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                    <p>Professional penetration testing and security auditing. Specialized in network security and vulnerability assessment.</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fab fa-linux"></i> Linux Community</h3>
+                    <p>Active contributor to open-source projects. Linux system administration and kernel development enthusiast.</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-code"></i> C# Development</h3>
+                    <p>Professional C# developer with expertise in secure coding practices and enterprise application development.</p>
+                </div>
+            </div>
+
+            <!-- Skills Progress -->
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Penetration Testing</span>
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">C# Programming</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Linux Systems</span>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Network Security</span>
+                        <span class="skill-percentage">92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00d4ff';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 35);
+
+        // Terminal Typing Effect
+        const texts = [
+            "Initializing system...",
+            "Loading profile: ᴬᴸ LINUX Linux",
+            "Status: Cybersecurity Professional",
+            "Skills: Penetration Testing | C# Development | Linux Administration",
+            "Community: Active Open-Source Contributor",
+            "System ready. Welcome to my digital realm."
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 50;
+
+        function typeText() {
+            const currentText = texts[textIndex];
+            const typingElement = document.getElementById('typing-text');
+
+            if (!isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    typingSpeed = 2000;
+                } else {
+                    typingSpeed = 50;
+                }
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    typingSpeed = 500;
+                } else {
+                    typingSpeed = 30;
+                }
+            }
+
+            setTimeout(typeText, typingSpeed);
+        }
+
+        // Start typing effect
+        setTimeout(typeText, 1000);
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Add interactive hover effect to profile logo
+        const profileLogo = document.querySelector('.profile-logo');
+        profileLogo.addEventListener('mouseenter', () => {
+            profileLogo.style.transform = 'scale(1.1) rotate(5deg)';
+        });
+        profileLogo.addEventListener('mouseleave', () => {
+            profileLogo.style.transform = 'scale(1) rotate(0deg)';
+        });
+    </script>
+            <script src="_next/static/chunks/webpack-2f18ef47810b4ea9.js" async=""></script>
+
+</body>
+</html>
